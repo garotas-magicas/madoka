@@ -1,0 +1,39 @@
+{
+  "name": "madoka-launcher",
+  "description": "Madoka animes",
+  "version": "1.0.0",
+  "main": "./dist/App.js",
+  "scripts": {
+    "dev": "tsc && electron ./dist/App.js",
+    "build": "electron-builder --win --x64",
+    "unpacked": "electron-packager . madoka --platform=win32"
+  },
+  "author": "madoka",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^26.2.1",
+    "electron-builder": "^24.6.4",
+    "electron-packager": "^17.1.2",
+    "typescript": "^5.2.2"
+  },
+  "build": {
+    "productName": "anime.seiku.anime",
+    "appId": "fun.seiku.anime",
+    "win": {
+      "target": [
+        "portable"
+      ]
+    },
+    "portable": {
+      "artifactName": "madoka.exe"
+    },
+    "directories": {
+      "output": "./setup"
+    },
+    "files": [
+      "./dist/App.js"
+    ],
+    "asar": true,
+    "icon": "./icon.ico"
+  }
+}
