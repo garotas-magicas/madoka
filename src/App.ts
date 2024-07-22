@@ -1,3 +1,5 @@
+import 'dotenv/config';
+import RichPresence from './services/discord/RichPresence';
 import { app, BrowserWindow } from 'electron';
 
 class App {
@@ -5,6 +7,7 @@ class App {
   private readonly _app: Electron.App = app;
   private readonly _uri: string = 'https://anime.seiku.fun/';
   private _mainWindow: BrowserWindow | null = null;
+  private readonly _rich = new RichPresence();
 
   constructor() {
     this._app.disableHardwareAcceleration();
@@ -25,14 +28,17 @@ class App {
       autoHideMenuBar: true
     });
     this.load();
+    this.richPresence();
     return this;
   }
 
-  private load(): this {
-    this._mainWindow?.loadURL(this._uri)
-      .then(() => this._mainWindow?.show());
-    return this;
+  private load(): void {
+    this._mainWindow?.loadURL(this._uri);
   };
+
+  private richPresence(): void {
+    setInterval(() => this._rich.update(this._mainWindow), 5 * 1000)
+  }
 
   private close(): this {
     this._app.quit()
