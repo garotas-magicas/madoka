@@ -18,7 +18,7 @@
     "typescript": "^5.5.3"
   },
   "build": {
-    "productName": "anime.seiku.anime",
+    "productName": "madoka",
     "appId": "fun.seiku.anime",
     "win": {
       "target": [
