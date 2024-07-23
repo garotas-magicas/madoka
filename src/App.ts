@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import RichPresence from './services/discord/RichPresence';
 import { app, BrowserWindow } from 'electron';
 
@@ -17,7 +16,7 @@ class App {
 
   private window(): this {
     this._mainWindow = new BrowserWindow({
-      title: "seiku loves nica",
+      title: "Madoka Anime",
       titleBarStyle: 'hidden',
       width: 1280,
       height: 720,
