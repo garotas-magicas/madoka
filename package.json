@@ -13,7 +13,7 @@
   "devDependencies": {
     "@types/discord-rpc": "^4.0.8",
     "electron": "^26.6.10",
-    "electron-builder": "^24.13.3",
+    "electron-builder": "^24.6.4",
     "electron-packager": "^17.1.2",
     "typescript": "^5.5.3"
   },
@@ -32,7 +32,8 @@
       "output": "./setup"
     },
     "files": [
-      "./dist/App.js"
+      "./dist/App.js",
+      "./dist/services/**/*"
     ],
     "asar": true,
     "icon": "./assets/icon.ico"
