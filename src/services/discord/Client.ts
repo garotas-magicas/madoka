@@ -1,4 +1,4 @@
-import { Client, register } from "discord-rpc";
+import { Client, register } from '../../libs/RPC/src/index';
 
 export default abstract class RPClient extends Client {
 

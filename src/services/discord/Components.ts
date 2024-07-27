@@ -16,7 +16,7 @@ export default abstract class Components extends RPClient {
     protected custom(details: string): void {
         this.setActivity({
             details,
-            largeImageKey: 'default',
+            largeImageKey: 'default'
         })
     }
 

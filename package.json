@@ -1,6 +1,6 @@
 {
   "name": "madoka-launcher",
-  "description": "Madoka Anime",
+  "description": "Madoka Animes",
   "version": "1.0.0",
   "main": "./dist/App.js",
   "scripts": {
@@ -38,6 +38,7 @@
     "icon": "./assets/icon.ico"
   },
   "dependencies": {
-    "discord-rpc": "^4.0.1"
+    "node-fetch": "^2.6.1",
+    "ws": "^7.3.1"
   }
 }

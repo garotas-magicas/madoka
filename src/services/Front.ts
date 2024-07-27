@@ -73,7 +73,7 @@ export class Front {
             if(!episode) {
                 return {
                     state: 'Anime pausado', 
-                    details: `Assistindo: ${title}`,
+                    details: `Anime: ${title}`,
                     largeImageKey: `https://cdn.nicashow.fun/images/animes/thumbnail/${anime.data[0].anime.slug_serie}.jpg`
                 }
             }
