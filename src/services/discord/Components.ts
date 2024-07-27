@@ -7,7 +7,7 @@ export default abstract class Components extends RPClient {
     protected async activity(window: BrowserWindow): Promise<void> {
         try {
             const { state, details, largeImageKey } = await Front.getAnime(window);
-            this.setActivity({ state, details, largeImageKey })
+            this.setActivity({ state, details, largeImageKey, type: 'WATCHING' })
         } catch (e) {
             this.custom('Buscando anime...')
         }
@@ -16,6 +16,7 @@ export default abstract class Components extends RPClient {
     protected custom(details: string): void {
         this.setActivity({
             details,
+            type: 'PLAYING',
             largeImageKey: 'default'
         })
     }

@@ -19,7 +19,7 @@ class RichPresence extends Components {
 
     private start(): this {
         this.login({ clientId: this.CLIENT_ID })
-            .catch((e: any) => console.error('[Rich Presence] -> %s', e.message))
+            .catch((e: any) => console.error('[Rich Presence] -> %s', e))
         console.log('[Rich Presence] -> Online!')
         return this;
     }

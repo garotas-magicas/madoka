@@ -468,11 +468,12 @@ class RPCClient extends EventEmitter {
    * @returns {Promise}
    */
   setActivity(args = {}, pid = getPid()) {
+    let type = !ActivityTypes.hasOwnProperty(args?.type) ? ActivityTypes['PLAYING'] : ActivityTypes[args.type];
     let timestamps;
     let assets;
     let party;
-    let secrets;
-    
+    let secrets;    
+
     if (args.startTimestamp || args.endTimestamp) {
       timestamps = {
         start: args.startTimestamp,
@@ -491,7 +492,7 @@ class RPCClient extends EventEmitter {
         throw new RangeError('timestamps.end must fit into a unix timestamp');
       }
     }
-
+    
     if (
       args.largeImageKey || args.largeImageText
       || args.smallImageKey || args.smallImageText
@@ -503,14 +504,14 @@ class RPCClient extends EventEmitter {
         small_text: args.smallImageText,
       };
     }
-
+    
     if (args.partySize || args.partyId || args.partyMax) {
       party = { id: args.partyId };
       if (args.partySize || args.partyMax) {
         party.size = [args.partySize, args.partyMax];
       }
     }
-
+    
     if (args.matchSecret || args.joinSecret || args.spectateSecret) {
       secrets = {
         match: args.matchSecret,
@@ -523,7 +524,7 @@ class RPCClient extends EventEmitter {
       pid,
       activity: {
         state: args.state,
-        type: 3,
+        type,
         details: args.details,
         timestamps,
         assets,

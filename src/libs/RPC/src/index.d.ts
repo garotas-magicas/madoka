@@ -46,7 +46,9 @@ export type RPCEvents =
     | "READY"
     | "ERROR";
 
-export class BaseClient extends EventEmitter {}
+export type ActivityTypes = "PLAYING" | "LISTENING" | "WATCHING" | "COMPETING";
+
+export class BaseClient extends EventEmitter { }
 
 /**
  * The main hub for interacting with Discord RPC
@@ -427,30 +429,30 @@ export interface VoiceSettings {
     deaf: boolean;
     mute: boolean;
     input?:
-        | {
-            device: string;
-            volume: number;
-        }
-        | undefined;
+    | {
+        device: string;
+        volume: number;
+    }
+    | undefined;
     output?:
-        | {
-            device: string;
-            volume: number;
-        }
-        | undefined;
+    | {
+        device: string;
+        volume: number;
+    }
+    | undefined;
     mode?:
-        | {
-            autoThreshold: boolean;
-            threshold: number;
-            shortcut: Array<{ type: number; code: number; name: string }>;
-            delay: number;
-        }
-        | undefined;
+    | {
+        autoThreshold: boolean;
+        threshold: number;
+        shortcut: Array<{ type: number; code: number; name: string }>;
+        delay: number;
+    }
+    | undefined;
 }
 
 export interface Presence {
     state?: string | undefined;
-    type?: WATCHING;
+    type: ActivityTypes;
     details?: string | undefined;
     startTimestamp?: number | Date | undefined;
     endTimestamp?: number | Date | undefined;
