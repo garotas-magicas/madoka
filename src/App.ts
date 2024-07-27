@@ -6,7 +6,7 @@ class App {
   private readonly _app: Electron.App = app;
   private readonly _uri: string = 'https://anime.seiku.fun/';
   private _mainWindow: BrowserWindow | null = null;
-  private readonly _rich = new RichPresence();
+  private readonly _rich = new RichPresence()
 
   constructor() {
     this._app.disableHardwareAcceleration();
